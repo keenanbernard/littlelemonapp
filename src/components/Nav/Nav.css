@@ -1,18 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box ;
     font-family: 'Karla', sans-serif;
     font-size: 1.05rem
-}
-
-:root{
-    --mainColor: #D9D9D9;
-    --mainColorLight: #D9D9D9;
-    --secondaryColor: #F4CE14;
-    --textColor: #333333;
 }
 
 .navBar {
@@ -22,8 +13,7 @@
     height: 100px;
     width: 100% !important;
     padding: 0 7rem;
-    background-color: var(--mainColor);
-    color: var(--textColor);
+    background-color: var(--secondary3);
 }
 
 nav{
@@ -33,7 +23,7 @@ nav{
 
 nav a {
     margin: 0 1.2rem;
-    color: var(--textColor);
+    color: var(--secondary4);
     text-decoration: none;
     display: block;
     font-weight: bold;
@@ -91,7 +81,7 @@ nav a:hover:after {
     background: transparent;
     border: none;
     outline: none;
-    color: var(--textColor);
+    color: var(--secondary3);
     visibility: hidden;
     opacity: 0;
     font-size: 1.8rem;

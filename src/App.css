@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&family=Markazi+Text:wght@500&display=swap');
+
+:root{
+  --mainColor: #D9D9D9;
+  --mainColorLight: #D9D9D9;
+  --primaryColor1: #495E57;
+  --primaryColor2: #F4CE14;
+  --secondary1: #EE9972;
+  --secondary2: #FBDABB;
+  --secondary3: #EDEFEE;
+  --secondary4: #333333;
+  --boxColors: #C8C7C7;
+  --prices: #FF8D24;
+}
+
 .App {
   text-align: center;
 }

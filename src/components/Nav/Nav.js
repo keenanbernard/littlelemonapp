@@ -1,6 +1,5 @@
 import React, {useRef} from 'react';
 import './Nav.css';
-import logo from "../../images/Logo.svg";
 import {FaBars, FaTimes} from "react-icons/fa";
 
 const Nav = () => {
@@ -12,7 +11,7 @@ const Nav = () => {
 
   return (
     <div className="navBar">
-      <a className="logo" href="/"><img src={logo} alt="Little Lemon Logo"/></a>
+      <a className="logo" href="/"><img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Logo.svg?updatedAt=1691705192811" alt="Little Lemon Logo"/></a>
       <nav ref={navRef}>
         <a href="/">Home</a>
         <a href="/about">About</a>

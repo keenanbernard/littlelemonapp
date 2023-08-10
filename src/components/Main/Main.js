@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Main.css"
-import heroImage from "../../images/restauranfood.jpg"
 const Main =()=> {
   const navigate = useNavigate();
 
@@ -27,7 +26,7 @@ const Main =()=> {
       </div>
       <div className="LL-Hero-right">
         <img
-          src={heroImage}
+          src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/restauranfood.jpg?updatedAt=1691705110896"
           alt="Little Lemon - Hero"
           className="hero"
         />
