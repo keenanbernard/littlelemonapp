@@ -1,0 +1,115 @@
+#navbar {
+    background: #D9D9D9;
+    color: rgb(13, 26, 38);
+    position: sticky;
+    top: 0;
+    height: 100px;
+    line-height: 60px;
+    width: 100vw;
+    z-index: 10;
+}
+
+.nav-wrapper {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+} @media(max-width: 768px) {
+    .nav-wrapper {
+        width: 90%;
+    }
+} @media(max-width: 638px) {
+    .nav-wrapper {
+        width: 100%;
+    }
+}
+
+
+.logo {
+    float: left;
+    font-size: 7.5em;
+    height: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+} @media(max-width: 768px) {
+    .logo {
+        /*       margin-left: 5px; */
+    }
+}
+
+#navbar ul {
+    display: inline-block;
+    float: right;
+    list-style: none;
+    margin-right: -40px;
+    margin-top: -8px;
+    text-align: right;
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.5s ease-out;
+} @media(max-width: 640px) {
+    #navbar ul {
+        display: none;
+    }
+} @media(orientation: landscape) {
+    #navbar ul {
+        display: inline-block;
+    }
+}
+
+#navbar ol {
+    display: inline-block;
+}
+
+#navbar ol a {
+    color: black;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 0 14px;
+    padding: 0 1px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+#navbar ol a:hover {
+    /* border-bottom: 1px solid rgb(28, 121, 184); */
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+#navbar ol a:before, #navbar ol a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: -1px;
+    background: #F4CE14;
+}
+
+#navbar ol a:before {
+    left: 0;
+    transition: 0.5s;
+}
+
+#navbar ol a:after {
+    background: #F4CE14;
+    right: 0;
+     transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#navbar ol a:hover:before {
+    background: #F4CE14;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#navbar ol a:hover:after {
+    background: transparent;
+    width: 100%;
+     transition: 0s;
+}

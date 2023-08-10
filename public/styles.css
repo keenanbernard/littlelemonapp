@@ -1,0 +1,5 @@
+.container {
+    display: flex;
+    justify-content: space-evenly; /* Distribute child elements with equal spacing */
+    align-items: center; /* Center items vertically */
+}
