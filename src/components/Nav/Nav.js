@@ -1,24 +1,33 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import './Nav.css';
 import logo from "../../images/Logo.svg";
+import {FaBars, FaTimes} from "react-icons/fa";
 
-function Nav() {
+const Nav = () => {
+  const navRef = useRef();
+
+  const showNavBar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+  }
+
   return (
-    <nav id="navbar" className="">
-      <div className="nav-wrapper">
-        <div className="logo">
-          <a href="#home"><img src={logo} alt="Little Lemon Logo" style={{width: "180px", height: 'auto'}}/></a>
-        </div>
-        <ul id="menu">
-          <ol><a href="/">Home</a></ol>
-          <ol><a href="/about">About</a></ol>
-          <ol><a href="/menu">Menu</a></ol>
-          <ol><a href="/reservation">Reservation</a></ol>
-          <ol><a href="/orders">Order Online</a></ol>
-          <ol><a href="/login">Login</a></ol>
-        </ul>
-      </div>
-    </nav>
+    <div className="navBar">
+      <a className="logo" href="/"><img src={logo} alt="Little Lemon Logo"/></a>
+      <nav ref={navRef}>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/menu">Menu</a>
+        <a href="/reservation">Reservation</a>
+        <a href="/orders">Order Online</a>
+        <a href="/login">Login</a>
+        <button className="nav-btn nav-close-btn" onClick={showNavBar}>
+          <FaTimes />
+        </button>
+      </nav>
+      <button className="nav-btn" onClick={showNavBar}>
+        <FaBars />
+      </button>
+    </div>
   );
 }
 

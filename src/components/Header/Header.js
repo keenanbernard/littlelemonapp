@@ -2,14 +2,14 @@ import React from "react";
 import {Outlet} from "react-router-dom";
 import Nav from "../Nav/Nav";
 
-const Header = (props) =>{
+const Header = () =>{
 
 
   return(
-    <header>
+    <>
       <Nav />
       <Outlet />
-    </header>
+    </>
   )
 }
 

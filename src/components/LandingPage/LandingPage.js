@@ -6,8 +6,8 @@ const LandingPage = () =>{
 
   return(
     <>
-      <Main /> {/* The Main component */}
-      <Footer /> {/* The Footer component */}
+      <Main />
+      <Footer />
     </>
   )
 }

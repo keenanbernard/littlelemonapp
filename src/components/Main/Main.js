@@ -1,12 +1,38 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./Main.css"
+import heroImage from "../../images/restauranfood.jpg"
+const Main =()=> {
+  const navigate = useNavigate();
 
-function Main() {
+
   return (
-    <main>
-      {/* Add your main content here */}
-      <h1>Welcome to Little Lemon Restaurant</h1>
-      <p>Enjoy our delicious dishes and reserve your table now!</p>
-    </main>
+    <section className="LL-Hero">
+      <div className="LL-Hero-left">
+        <header className="displayTitle">
+          Little Lemon
+        </header>
+        <p className="subTitle">Chicago</p>
+        <p className="LL-Hero-desc">
+          We are a family owned Mediterranean restaurant, focused on traditional
+          recipes served with a modern twist.
+        </p>
+        <button
+          aria-label="Reserve a Table"
+          className="LL-Hero-btn"
+          onClick={() => navigate('/bookings')}
+        >
+          Reserve a Table
+        </button>
+      </div>
+      <div className="LL-Hero-right">
+        <img
+          src={heroImage}
+          alt="Little Lemon - Hero"
+          className="hero"
+        />
+      </div>
+    </section>
   );
 }
 

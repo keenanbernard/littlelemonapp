@@ -1,88 +1,58 @@
-#navbar {
-    background: #D9D9D9;
-    color: rgb(13, 26, 38);
-    position: sticky;
-    top: 0;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.05rem
+}
+
+:root{
+    --mainColor: #D9D9D9;
+    --mainColorLight: #D9D9D9;
+    --secondaryColor: #F4CE14;
+    --textColor: #333333;
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 100px;
-    line-height: 60px;
-    width: 100vw;
-    z-index: 10;
+    width: 100% !important;
+    padding: 0 7rem;
+    background-color: var(--mainColor);
+    color: var(--textColor);
 }
 
-.nav-wrapper {
-    margin: auto;
-    text-align: center;
-    width: 70%;
-} @media(max-width: 768px) {
-    .nav-wrapper {
-        width: 90%;
-    }
-} @media(max-width: 638px) {
-    .nav-wrapper {
-        width: 100%;
-    }
-}
-
-
-.logo {
-    float: left;
-    font-size: 7.5em;
-    height: 30px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-} @media(max-width: 768px) {
-    .logo {
-        /*       margin-left: 5px; */
-    }
-}
-
-#navbar ul {
-    display: inline-block;
-    float: right;
-    list-style: none;
-    margin-right: -40px;
-    margin-top: -8px;
-    text-align: right;
-    transition: transform 0.5s ease-out;
-    -webkit-transition: transform 0.5s ease-out;
-} @media(max-width: 640px) {
-    #navbar ul {
-        display: none;
-    }
-} @media(orientation: landscape) {
-    #navbar ul {
-        display: inline-block;
-    }
-}
-
-#navbar ol {
+nav{
+    margin-left: 10rem;
     display: inline-block;
 }
 
-#navbar ol a {
-    color: black;
+nav a {
+    margin: 0 1.2rem;
+    color: var(--textColor);
+    text-decoration: none;
     display: block;
-    font-size: 1em;
     font-weight: bold;
-    height: 50px;
     letter-spacing: 1px;
-    margin: 0 14px;
     padding: 0 1px;
     position: relative;
-    text-decoration: none;
     text-transform: uppercase;
     transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
 }
 
-#navbar ol a:hover {
+nav a:hover {
     /* border-bottom: 1px solid rgb(28, 121, 184); */
     transition: all 1s ease;
     -webkit-transition: all 1s ease;
 }
 
 /* Animated Bottom Line */
-#navbar ol a:before, #navbar ol a:after {
+nav a:before, nav a:after {
     content: '';
     position: absolute;
     width: 0;
@@ -91,25 +61,106 @@
     background: #F4CE14;
 }
 
-#navbar ol a:before {
+nav a:before {
     left: 0;
     transition: 0.5s;
 }
 
-#navbar ol a:after {
+nav a:after {
     background: #F4CE14;
     right: 0;
-     transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-#navbar ol a:hover:before {
+nav a:hover:before {
     background: #F4CE14;
     width: 100%;
     transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-#navbar ol a:hover:after {
+nav a:hover:after {
     background: transparent;
     width: 100%;
-     transition: 0s;
+    transition: 0s;
+}
+
+
+.navBar .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+}
+
+.navBar div,
+nav {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navBar .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navBar nav {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--mainColor);
+        transition: 1s;
+    }
+
+    .navBar .responsive_nav {
+        transform: translateY(100vh);
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .navBar .nav-btn{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navBar nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--mainColor);
+        transition: 1s;
+        transform: translate(-120vh);
+    }
+
+    .navBar .responsive_nav{
+        transform: none;
+    }
 }
