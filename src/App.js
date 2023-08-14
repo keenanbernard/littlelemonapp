@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Header from "./components/Header/Header";
-import LandingPage from "./components/LandingPage/LandingPage";
+import Header from "./components/Sections/Header/Header";
+import LandingPage from "./components/Pages/LandingPage/LandingPage";
 
 export const router = createBrowserRouter([
 

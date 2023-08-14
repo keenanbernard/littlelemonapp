@@ -12,7 +12,7 @@ const Footer = () =>{
         </section>
         <section>
           <p>Menu</p>
-          <article>
+          <article className="LL-Footer-Nav">
             <p>Home</p>
             <p>About</p>
             <p>Menu</p>
