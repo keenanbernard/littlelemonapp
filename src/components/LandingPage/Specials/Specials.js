@@ -1,5 +1,5 @@
 import './Specials.css';
-import {Card} from "./Card/Card";
+import {Cards} from "../../Shared/Cards/Cards";
 
 export const Specials = ({ data, itemWidth }) => {
   return (
@@ -11,7 +11,7 @@ export const Specials = ({ data, itemWidth }) => {
 
       <section id="LL-Section-SpecialItems">
         {data.map(({ id, title, price, description, image }) => (
-          <Card key={id} title={title} width={itemWidth} image={image}>
+          <Cards key={id} title={title} width={itemWidth} image={image}>
             <div className="LL-CardHeader card-variant-food">
               <header className="food-title">
                 {title}
@@ -23,7 +23,7 @@ export const Specials = ({ data, itemWidth }) => {
             <div className="card-footer LL-OrderButton">
               <p className="p-order p-order2">Order for delivery</p>
             </div>
-          </Card>
+          </Cards>
         ))}
       </section>
     </section>

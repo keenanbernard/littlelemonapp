@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Main.css"
-const Main =()=> {
+import "./Hero.css"
+const Hero =()=> {
   const navigate = useNavigate();
 
 
@@ -35,4 +35,4 @@ const Main =()=> {
   );
 }
 
-export default Main;
+export default Hero;

@@ -1,8 +1,8 @@
 import React, {useRef} from 'react';
-import './Nav.css';
+import './Navigation.css';
 import {FaBars, FaTimes} from "react-icons/fa";
 
-const Nav = () => {
+const Navigation = () => {
   const navRef = useRef();
 
   const showNavBar = () => {
@@ -30,4 +30,4 @@ const Nav = () => {
   );
 }
 
-export default Nav;
+export default Navigation;

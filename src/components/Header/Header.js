@@ -1,13 +1,13 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
-import Nav from "../Nav/Nav";
+import Navigation from "../Nav/Navigation";
 
 const Header = () =>{
 
 
   return(
     <>
-      <Nav />
+      <Navigation />
       <Outlet />
     </>
   )

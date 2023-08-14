@@ -1,14 +1,13 @@
-import './Card.css';
+import './Cards.css';
 
 const IMAGE_PLACEMENT = ['top-full', 'left', 'right', 'bottom-full'];
 
-export const Card = ({
+export const Cards = ({
                        title,
                        image,
                        children,
                        imagePosition = 'top-full',
-                       width,
-                       height,
+                       width
                      }) => {
   const position = IMAGE_PLACEMENT.includes(imagePosition) ? imagePosition : '';
   const classes = `LL-Card ${position}`;
