@@ -34,6 +34,8 @@ section.LL-Specials {
 .specials-titlebar button:hover{
     background-color: var(--primaryColor1);
     color: var(--secondary3);
+    cursor: pointer;
+    transition: background-color 1s cubic-bezier(0.23, 1, 0.32, 1), color 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 #LL-Section-SpecialItems {
