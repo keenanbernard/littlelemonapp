@@ -1,12 +1,15 @@
 import './Specials.css';
 import {Cards} from "../../Shared/Cards/Cards";
+import {useNavigate} from "react-router-dom";
 
 export const Specials = ({ data, itemWidth }) => {
+  const navigate = useNavigate();
+
   return (
     <section id="specials" className="LL-Specials">
       <section className="specials-titlebar">
         <header>This Weeks Specials</header>
-        <button>Online Menu</button>
+        <button onClick={() => navigate('/menu')}>Online Menu</button>
       </section>
 
       <section id="LL-Section-SpecialItems">
