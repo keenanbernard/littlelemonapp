@@ -66,14 +66,13 @@
     width: 200px;
     height: 60px;
     border-radius: 10px;
+    transition: 0.7s;
 }
 
 .LL-Hero-btn:hover{
     background-color: var(--secondary3);
     color: var(--primaryColor1);
     cursor: pointer;
-    transition: background-color 1s cubic-bezier(0.23, 1, 0.32, 1), color 1s cubic-bezier(0.23, 1, 0.32, 1);
-
 }
 
 @media only screen and (max-width: 768px) {

@@ -11,14 +11,13 @@ const Footer = () =>{
           <img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Logo.svg?updatedAt=1691705192811" alt="Little Lemon Logo"/>
         </section>
         <section>
-          <p>Menu</p>
+          <p>Opening Hours</p>
           <article className="LL-Footer-Nav">
-            <p>Home</p>
-            <p>About</p>
+            <p>Monday - Friday</p>
+            <p>12pm - 12am</p>
             <p>Menu</p>
-            <p>Reservations</p>
-            <p>Order Online</p>
-            <p>Login</p>
+            <p>Saturday - Sunday</p>
+            <p>1pm - 10pm</p>
           </article>
         </section>
         <section>

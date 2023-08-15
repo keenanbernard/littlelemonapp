@@ -4,7 +4,6 @@ import "./Hero.css"
 const Hero =()=> {
   const navigate = useNavigate();
 
-
   return (
     <section className="LL-Hero">
       <div className="LL-Hero-left">

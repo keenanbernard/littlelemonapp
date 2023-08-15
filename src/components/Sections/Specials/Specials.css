@@ -29,13 +29,13 @@ section.LL-Specials {
     width: 200px;
     height: 60px;
     border-radius: 10px;
+    transition: 0.7s;
 }
 
 .specials-titlebar button:hover{
     background-color: var(--primaryColor1);
     color: var(--secondary3);
     cursor: pointer;
-    transition: background-color 1s cubic-bezier(0.23, 1, 0.32, 1), color 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 #LL-Section-SpecialItems {
@@ -76,8 +76,25 @@ section.LL-Specials {
     font-weight: bold;
 }
 
+.LL-OrderButton{
+    margin: auto;
+}
 .p-order{
-    color: var(--secondary4)
+    background-color: var(--primaryColor2);
+    border-color: transparent;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
+.p-order:hover{
+    background-color: var(--primaryColor1);
+    color: var(--secondary3);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {

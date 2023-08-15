@@ -20,8 +20,8 @@ export const Specials = ({ data, itemWidth }) => {
             </div>
             <div className="food-desc">{description}</div>
 
-            <div className="card-footer LL-OrderButton">
-              <p className="p-order p-order2">Order for delivery</p>
+            <div className="LL-OrderButton">
+              <button className="p-order p-order2">Order for delivery</button>
             </div>
           </Cards>
         ))}

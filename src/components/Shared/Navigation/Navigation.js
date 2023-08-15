@@ -16,8 +16,8 @@ const Navigation = () => {
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/menu">Menu</a>
-        <a href="/reservation">Reservation</a>
-        <a href="/orders">Order Online</a>
+        <a href="/bookings">Reservation</a>
+        <a href="/orderonline">Order Online</a>
         <a href="/login">Login</a>
         <button className="nav-btn nav-close-btn" onClick={showNavBar}>
           <FaTimes />

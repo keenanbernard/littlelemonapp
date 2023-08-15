@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "title": "Bucatini",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/bucatini.gif?updatedAt=1692121782402",
+    "price": 11.99,
+    "description": "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+  },
+  {
+    "id": 2,
+    "title": "Fettucine",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/fettucine.png?updatedAt=1692121782225",
+    "price": 14.99,
+    "description": "Indulge in our exquisite Bruschetta, crafted from grilled bread, smeared with garlic, and perfectly seasoned with salt and luscious extra virgin olive oil."
+  },
+  {
+    "id": 3,
+    "title": "Casunziei",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/casunziei1.png?updatedAt=1692121782169",
+    "price": 9.99,
+    "description": "Delight in our culinary treasure – a tribute to grandma's recipe book. Each ingredient thoughtfully sourced for an authentic, memorable taste."
+  }
+,
+  {
+    "id": 4,
+    "title": "Capricciosa",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/plate.png?updatedAt=1692121782308",
+    "price": 11.99,
+    "description": "Delight in our culinary treasure – a tribute to grandma's recipe book. Each ingredient thoughtfully sourced for an authentic, memorable taste."
+  },
+  {
+    "id": 5,
+    "title": "Farfalle",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/saporita-2.png?updatedAt=1692121782247",
+    "price": 14.99,
+    "description": "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+  },
+  {
+    "id": 6,
+    "title": "Saporita",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/saporita.png?updatedAt=1692121782239",
+    "price": 14.99,
+    "description": "Indulge in our exquisite Bruschetta, crafted from grilled bread, smeared with garlic, and perfectly seasoned with salt and luscious extra virgin olive oil."
+  },
+  {
+    "id": 7,
+    "title": "Periperi",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/periperi.png?updatedAt=1692121782310",
+    "price": 19.99,
+    "description": "Delight in our culinary treasure – a tribute to grandma's recipe book. Each ingredient thoughtfully sourced for an authentic, memorable taste."
+  }
+,
+  {
+    "id": 8,
+    "title": "Diablo",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/diablo.png?updatedAt=1692121782111",
+    "price": 4.99,
+    "description": "Delight in our culinary treasure – a tribute to grandma's recipe book. Each ingredient thoughtfully sourced for an authentic, memorable taste."
+  }
+]

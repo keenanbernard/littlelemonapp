@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Mario%20and%20Adrian%20b.jpg?updatedAt=1691705199187",
+    "alt": "Little Lemon - Burritos",
+    "divID": "about-first-image"
+  },
+  {
+    "id": 2,
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/little-lemon-pastas_-BfcomSI5.webp?updatedAt=1691727561596",
+    "alt": "Little Lemon - Pastas",
+    "divID": "about-second-image"
+  }
+  ]
