@@ -14,6 +14,7 @@
     width: 100% !important;
     padding: 0 7rem;
     background-color: var(--secondary3);
+    position: sticky; top: 0
 }
 
 nav{
