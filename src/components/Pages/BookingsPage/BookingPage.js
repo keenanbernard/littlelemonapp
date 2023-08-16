@@ -21,7 +21,7 @@ const BookingPage = () =>{
   const numbers = generateNumberArray(0, 8);
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   const phoneNumberRegex = /\d/g
-  const valid = emailRegex.test(email) && date !== '' && guests !== 0 && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
+  const validation = emailRegex.test(email) && date !== '' && guests !== 0 && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
 
   const stateHandler = (event, type) => {
     event.preventDefault()
@@ -78,7 +78,7 @@ const BookingPage = () =>{
             <input value={date} className="LL-Booking-Date" type="date" onChange={(event) => stateHandler(event, 'date')}></input>
             <input value={phoneNumber} placeholder="+501-614-4297" className={`LL-Booking-Number`} type="text" onChange={(event) => stateHandler(event, 'phone')}></input>
             <input value={email} placeholder="johndoe@gmail.com" className={`LL-Booking-Email`} type="text" onChange={(event) => stateHandler(event, 'email')}></input>
-            <button disabled={!valid} className={`LL-Booking-Button ${!valid}`} onClick={resetStates}>Reserve Table</button>
+            <button disabled={!validation} className={`LL-Booking-Button ${!validation}`} onClick={resetStates}>Reserve Table</button>
           </div>
         </div>
       </section>

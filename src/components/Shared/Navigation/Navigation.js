@@ -15,11 +15,11 @@ const Navigation = () => {
       <a className="logo" href="/"><img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Logo.svg?updatedAt=1691705192811" alt="Little Lemon Logo"/></a>
       <nav ref={navRef}>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">About</Link>
         <Link to="/menu">Menu</Link>
         <Link to="/bookings">Reservation</Link>
-        <Link to="/orderonline">Order Online</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/">Order Online</Link>
+        <Link to="/">Login</Link>
         <button className="nav-btn nav-close-btn" onClick={showNavBar}>
           <FaTimes />
         </button>

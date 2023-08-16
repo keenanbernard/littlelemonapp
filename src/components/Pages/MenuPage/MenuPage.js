@@ -1,8 +1,10 @@
 import React from "react";
 import "./MenuPage.css"
 import specials from "./menu.json"
+import {useNavigate} from "react-router-dom";
 
 const MenuPage = () =>{
+  const navigate = useNavigate();
 
   return(
     <section id="menu" className="LL-Menu">
@@ -13,7 +15,7 @@ const MenuPage = () =>{
       <section className="LL-Reservations">
         <p className="LL-Reservations-1">Reservations</p>
         <p className="LL-Reservations-2">Book your table online.</p>
-        <button>reserve</button>
+        <button onClick={() => navigate('/bookings')}>reserve</button>
       </section>
 
       {specials.map(({id, title, price, description, image}) => (
