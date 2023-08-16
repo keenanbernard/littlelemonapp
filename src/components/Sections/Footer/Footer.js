@@ -14,10 +14,9 @@ const Footer = () =>{
           <p>Opening Hours</p>
           <article className="LL-Footer-Nav">
             <p>Monday - Friday</p>
-            <p>12pm - 12am</p>
-            <p>Menu</p>
+            <p>10am - 10pm</p>
             <p>Saturday - Sunday</p>
-            <p>1pm - 10pm</p>
+            <p>12pm - 8pm</p>
           </article>
         </section>
         <section>
