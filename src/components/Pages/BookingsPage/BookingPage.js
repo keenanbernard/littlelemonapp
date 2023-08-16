@@ -7,6 +7,7 @@ const BookingPage = () =>{
   const [date, setDate] = useState('');
   const [guests, setGuests] = useState(0);
   const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const generateNumberArray = (start, end) => {
     const numberArray = [];
 
@@ -19,7 +20,8 @@ const BookingPage = () =>{
 
   const numbers = generateNumberArray(0, 8);
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-  const valid = emailRegex.test(email) && date !== '' && guests !== 0;
+  const phoneNumberRegex = /\d/g
+  const valid = emailRegex.test(email) && date !== '' && guests !== 0 && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
 
   const stateHandler = (event, type) => {
     event.preventDefault()
@@ -30,11 +32,15 @@ const BookingPage = () =>{
 
     if (type === 'email') setEmail(event.target.value);
 
+    if (type === 'phone') setPhoneNumber(event.target.value);
+
   }
+
   const resetStates = () =>{
-    setDate('')
-    setGuests(0)
-    setEmail('')
+    setDate('');
+    setGuests(0);
+    setEmail('');
+    setPhoneNumber('');
   }
 
   return(
@@ -64,12 +70,13 @@ const BookingPage = () =>{
         <div className="LL-Booking-right">
           <div className="LL-Booking-Card">
             <p>Book a Table</p>
-            <input value={date} className="LL-Booking-Date" type="date" onChange={(event) => stateHandler(event, 'date')}></input>
             <select value={guests} className="LL-Booking-Options" onChange={(event) => stateHandler(event, 'guests')}>
               {numbers.map((number) => (
                 <option key={number}>{number}</option>
                 ))}
             </select>
+            <input value={date} className="LL-Booking-Date" type="date" onChange={(event) => stateHandler(event, 'date')}></input>
+            <input value={phoneNumber} placeholder="+501-614-4297" className={`LL-Booking-Number`} type="text" onChange={(event) => stateHandler(event, 'phone')}></input>
             <input value={email} placeholder="johndoe@gmail.com" className={`LL-Booking-Email`} type="text" onChange={(event) => stateHandler(event, 'email')}></input>
             <button disabled={!valid} className={`LL-Booking-Button ${!valid}`} onClick={resetStates}>Reserve Table</button>
           </div>

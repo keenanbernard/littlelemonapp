@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import './Navigation.css';
 import {FaBars, FaTimes} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Navigation = () => {
   const navRef = useRef();
@@ -13,12 +14,12 @@ const Navigation = () => {
     <div className="navBar">
       <a className="logo" href="/"><img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Logo.svg?updatedAt=1691705192811" alt="Little Lemon Logo"/></a>
       <nav ref={navRef}>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/menu">Menu</a>
-        <a href="/bookings">Reservation</a>
-        <a href="/orderonline">Order Online</a>
-        <a href="/login">Login</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/menu">Menu</Link>
+        <Link to="/bookings">Reservation</Link>
+        <Link to="/orderonline">Order Online</Link>
+        <Link to="/login">Login</Link>
         <button className="nav-btn nav-close-btn" onClick={showNavBar}>
           <FaTimes />
         </button>
