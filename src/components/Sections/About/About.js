@@ -24,7 +24,7 @@ export const About = ({data}) => {
         <section className="about-right-column">
           <section id="about-images">
             {data.map(({ id, image, alt, divID }) => (
-              <div id={divID} tabIndex={id}>
+              <div id={divID} key={id} tabIndex={id}>
                 <img
                   src={image}
                   alt={alt}

@@ -20,7 +20,7 @@ const BookingPage = () =>{
 
   const numbers = generateNumberArray(0, 8);
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-  const phoneNumberRegex = /\d/g
+  const phoneNumberRegex = /\d/g;
   const validation = emailRegex.test(email) && date !== '' && guests !== 0 && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
 
   const stateHandler = (event, type) => {
@@ -41,7 +41,37 @@ const BookingPage = () =>{
     setGuests(0);
     setEmail('');
     setPhoneNumber('');
-  }
+  };
+
+  const postReservation = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/postReservations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          guestSize: guests,
+          date: date,
+          phoneNumber: phoneNumber,
+          email: email,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        const errorData = await response.json();
+        console.log(errorData.message); // Display error message from the server
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      resetStates();
+    }
+  };
+
 
   return(
     <section className="LL-Booking">
@@ -78,7 +108,7 @@ const BookingPage = () =>{
             <input value={date} className="LL-Booking-Date" type="date" onChange={(event) => stateHandler(event, 'date')}></input>
             <input value={phoneNumber} placeholder="+501-614-4297" className={`LL-Booking-Number`} type="text" onChange={(event) => stateHandler(event, 'phone')}></input>
             <input value={email} placeholder="johndoe@gmail.com" className={`LL-Booking-Email`} type="text" onChange={(event) => stateHandler(event, 'email')}></input>
-            <button disabled={!validation} className={`LL-Booking-Button ${!validation}`} onClick={resetStates}>Reserve Table</button>
+            <button disabled={!validation} className={`LL-Booking-Button ${!validation}`} onClick={postReservation}>Reserve Table</button>
           </div>
         </div>
       </section>
