@@ -5,6 +5,7 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 const db = mysql.createConnection({
   user: "root",
@@ -51,4 +52,30 @@ app.post("/postReservations", (req, res) => {
     }
   });
 });
+
+//Firebase
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const serviceAccount = require("./key.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const dbFirestore = admin.firestore();
+
+app.post('/postReservationsFS', async (req, res) => {
+  const { guestSize, date, phoneNumber, email } = req.body;
+
+  try {
+    const reservationRef = dbFirestore.collection('reservations');
+    await reservationRef.add({ guestSize, date, phoneNumber, email });
+
+    res.status(200).json({ message: "SUCCESSFULLY CREATED RESERVATION" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred while inserting the reservation." });
+  }
+});
+
+exports.api = functions.https.onRequest(app);
+
 

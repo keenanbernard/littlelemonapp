@@ -45,7 +45,7 @@ const BookingPage = () =>{
 
   const postReservation = async () => {
     try {
-      const response = await fetch('http://localhost:3001/postReservations', {
+      const response = await fetch('http://localhost:3001/postReservationsFS', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
