@@ -6,6 +6,7 @@ import LandingPage from "./components/Pages/LandingPage/LandingPage";
 import BookingPage from "./components/Pages/BookingsPage/BookingPage";
 import MenuPage from "./components/Pages/MenuPage/MenuPage";
 import 'react-notifications/lib/notifications.css';
+import AboutPage from "./components/Pages/AboutPage/AboutPage";
 
 
 export const router = createBrowserRouter([
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       { path: '/bookings', element: <BookingPage /> },
       { path: '/menu', element: <MenuPage /> },
+      { path: '/about', element: <AboutPage /> },
     ],
   },
 ]);

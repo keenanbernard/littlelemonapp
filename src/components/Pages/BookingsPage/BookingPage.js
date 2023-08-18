@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
 import NotificationContainer from "react-notifications/lib/NotificationContainer";
-import {postReservationCloud} from "../../Functions/cloudReservation";
+import {postReservationCloud} from "../../../functions/cloudReservation";
 
 const BookingPage = () =>{
 
