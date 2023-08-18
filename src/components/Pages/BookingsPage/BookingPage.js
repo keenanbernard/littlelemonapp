@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
-import {NotificationManager} from "react-notifications";
-import NotificationContainer from "react-notifications/lib/NotificationContainer"
-import {sendEmailJS} from "../../Functions/EmailJS";
+import NotificationContainer from "react-notifications/lib/NotificationContainer";
+import {postReservationCloud} from "../../Functions/cloudReservation";
 
 const BookingPage = () =>{
 
@@ -13,6 +12,7 @@ const BookingPage = () =>{
   const [phoneNumber, setPhoneNumber] = useState('');
   const [subject] = useState('Reservation Confirmed');
   const [content, setContent] = useState(``);
+  const bannerRef = useRef(null);
 
   const resetStates = () =>{
     setDate('');
@@ -69,38 +69,8 @@ const BookingPage = () =>{
     return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
   };
 
-  const postReservation = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/postReservationsFS', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          guestSize: guests,
-          date: date,
-          phoneNumber: phoneNumber,
-          email: email,
-        }),
-      });
-
-      if (response.ok) {
-        NotificationManager.success('Reservation confirmed', 'SUCCESS', 5000);
-        await sendEmailJS(email, subject, content);
-      } else {
-        const errorData = await response.json();
-        NotificationManager.error(errorData.message, 'ERROR', 5000);
-      }
-    } catch (error) {
-      NotificationManager.error(error.message || 'Service Unreachable', 'ERROR', 5000);
-    } finally {
-      resetStates();
-    }
-  };
-
-
   return(
-    <section className="LL-Booking">
+    <section ref={bannerRef} className="LL-Booking">
       <div className="LL-Booking-Banner">
         <img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/622b15f3452a1-859561.jpg?updatedAt=1692053132710" alt="Dining Room" />
         <Link to='reservations' offset={0} duration={1200} smooth={true} delay={100}>
@@ -153,7 +123,16 @@ const BookingPage = () =>{
             <button
               disabled={!validation}
               className={`LL-Booking-Button ${!validation}`}
-              onClick={postReservation}>Reserve Table</button>
+              onClick={() => {
+                postReservationCloud(email, subject, content, resetStates).then(() => {
+                  const controller = new AbortController()
+                  controller.abort()
+                });
+
+                bannerRef.current.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}>Reserve Table</button>
           </div>
         </div>
       </section>
