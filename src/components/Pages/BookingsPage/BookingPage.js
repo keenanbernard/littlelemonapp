@@ -40,7 +40,12 @@ const BookingPage = () =>{
   const stateHandler = (event, type) => {
     event.preventDefault()
 
-    if (type === 'date') setDate(event.target.value);
+    if (type === 'date') {
+      const dateTimeString = event.target.value;
+      const [datePart, timePart] = dateTimeString.split("T");
+      const formattedDateTime = `${datePart} ${timePart}`;
+      setDate(formattedDateTime);
+    }
 
     if (type === 'guests') setGuests(event.target.value);
 
