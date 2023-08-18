@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
 import {NotificationManager} from "react-notifications";
@@ -52,11 +52,11 @@ const BookingPage = () =>{
     if (type === 'email') setEmail(event.target.value);
 
     if (type === 'phone') setPhoneNumber(event.target.value);
-
-    setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
   }
 
-  console.log(date)
+  useEffect(() =>{
+    setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
+  }, [date, guests, email, phoneNumber])
 
   const getCurrentDateTime = () => {
     const now = new Date();
