@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
+import {NotificationManager} from "react-notifications";
+import NotificationContainer from "react-notifications/lib/NotificationContainer";
 
 const BookingPage = () =>{
 
@@ -8,6 +10,8 @@ const BookingPage = () =>{
   const [guests, setGuests] = useState(0);
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [subject] = useState('Reservation Confirmed');
+  const [content] = useState('Your Little Lemon Reservation has been confirmed.');
   const generateNumberArray = (start, end) => {
     const numberArray = [];
 
@@ -43,6 +47,28 @@ const BookingPage = () =>{
     setPhoneNumber('');
   };
 
+  const handleEmail = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, subject, content }),
+      });
+
+      if (response.ok) {
+        NotificationManager.success('Reservation Emailed', 'SUCCESS', 5000);
+      } else {
+        const errorData = await response.json();
+        NotificationManager.error(errorData.error || 'Failed to send email', 'Error', 5000);
+      }
+    } catch (error) {
+      NotificationManager.error('An error occurred while sending the email', 'Error', 5000);
+    }
+  };
+
+
   const postReservation = async () => {
     try {
       const response = await fetch('http://localhost:3001/postReservationsFS', {
@@ -59,14 +85,14 @@ const BookingPage = () =>{
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log(data);
+        NotificationManager.success('Reservation confirmed', 'SUCCESS', 5000);
+        await handleEmail();
       } else {
         const errorData = await response.json();
-        console.log(errorData.message); // Display error message from the server
+        NotificationManager.error(errorData.message, 'ERROR', 5000);
       }
     } catch (error) {
-      console.error('Error:', error);
+      NotificationManager.error(error.message || 'Service Unreachable', 'ERROR', 5000);
     } finally {
       resetStates();
     }
@@ -112,6 +138,7 @@ const BookingPage = () =>{
           </div>
         </div>
       </section>
+      <NotificationContainer/>
     </section>
   )
 }

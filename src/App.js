@@ -5,6 +5,7 @@ import Header from "./components/Sections/Header/Header";
 import LandingPage from "./components/Pages/LandingPage/LandingPage";
 import BookingPage from "./components/Pages/BookingsPage/BookingPage";
 import MenuPage from "./components/Pages/MenuPage/MenuPage";
+import 'react-notifications/lib/notifications.css';
 
 
 export const router = createBrowserRouter([
