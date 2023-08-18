@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
 import {NotificationManager} from "react-notifications";
-import NotificationContainer from "react-notifications/lib/NotificationContainer";
+import NotificationContainer from "react-notifications/lib/NotificationContainer"
+import {sendEmailJS} from "../../Functions/EmailJS";
 
 const BookingPage = () =>{
 
@@ -11,7 +12,16 @@ const BookingPage = () =>{
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [subject] = useState('Reservation Confirmed');
-  const [content] = useState(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
+  const [content, setContent] = useState(``);
+
+  const resetStates = () =>{
+    setDate('');
+    setGuests(0);
+    setEmail('');
+    setPhoneNumber('');
+    setContent(``)
+  };
+
   const generateNumberArray = (start, end) => {
     const numberArray = [];
 
@@ -38,36 +48,19 @@ const BookingPage = () =>{
 
     if (type === 'phone') setPhoneNumber(event.target.value);
 
+    setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
   }
 
-  const resetStates = () =>{
-    setDate('');
-    setGuests(0);
-    setEmail('');
-    setPhoneNumber('');
+  const getCurrentDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const day = now.getDate();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+
+    return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
   };
-
-  const handleEmail = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/sendEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, subject, content }),
-      });
-
-      if (response.ok) {
-        NotificationManager.success('Reservation Emailed', 'SUCCESS', 5000);
-      } else {
-        const errorData = await response.json();
-        NotificationManager.error(errorData.error || 'Failed to send email', 'Error', 5000);
-      }
-    } catch (error) {
-      NotificationManager.error('An error occurred while sending the email', 'Error', 5000);
-    }
-  };
-
 
   const postReservation = async () => {
     try {
@@ -86,7 +79,7 @@ const BookingPage = () =>{
 
       if (response.ok) {
         NotificationManager.success('Reservation confirmed', 'SUCCESS', 5000);
-        await handleEmail();
+        await sendEmailJS(email, subject, content);
       } else {
         const errorData = await response.json();
         NotificationManager.error(errorData.message, 'ERROR', 5000);
@@ -131,10 +124,28 @@ const BookingPage = () =>{
                 <option key={number}>{number}</option>
                 ))}
             </select>
-            <input value={date} className="LL-Booking-Date" type="date" onChange={(event) => stateHandler(event, 'date')}></input>
-            <input value={phoneNumber} placeholder="+501-614-4297" className={`LL-Booking-Number`} type="text" onChange={(event) => stateHandler(event, 'phone')}></input>
-            <input value={email} placeholder="johndoe@gmail.com" className={`LL-Booking-Email`} type="text" onChange={(event) => stateHandler(event, 'email')}></input>
-            <button disabled={!validation} className={`LL-Booking-Button ${!validation}`} onClick={postReservation}>Reserve Table</button>
+            <input
+              value={date}
+              className="LL-Booking-Date"
+              type="datetime-local"
+              min={getCurrentDateTime()}
+              onChange={(event) => stateHandler(event, 'date')}></input>
+            <input
+              value={phoneNumber}
+              placeholder="+501-614-4297"
+              className={`LL-Booking-Number`}
+              type="text"
+              onChange={(event) => stateHandler(event, 'phone')}></input>
+            <input
+              value={email}
+              placeholder="johndoe@gmail.com"
+              className={`LL-Booking-Email`}
+              type="text"
+              onChange={(event) => stateHandler(event, 'email')}></input>
+            <button
+              disabled={!validation}
+              className={`LL-Booking-Button ${!validation}`}
+              onClick={postReservation}>Reserve Table</button>
           </div>
         </div>
       </section>

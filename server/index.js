@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-
+//local mySQL connection
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
@@ -20,6 +20,7 @@ const db = mysql.createConnection({
   insecureAuth : true
 });
 
+//gmail service
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
@@ -32,7 +33,7 @@ app.listen(3001, () => {
   console.log('Server running...');
 });
 
-// Get All Drivers
+// Get All Reservations
 app.get('/fetchReservations', (req, res) => {
   const sql = "SELECT * FROM littlelemon.reservations ORDER BY id ASC";
   db.query(sql, (err, result) => {
@@ -45,7 +46,7 @@ app.get('/fetchReservations', (req, res) => {
   });
 });
 
-// Add a new Driver
+// Add a new Reservation
 app.post("/postReservations", (req, res) => {
   const { guestSize, date, phoneNumber, email } = req.body;
 
@@ -66,6 +67,7 @@ app.post("/postReservations", (req, res) => {
   });
 });
 
+//post email via google
 app.post('/sendEmail', async (req, res) => {
   const { email, subject, content } = req.body;
 
@@ -94,6 +96,7 @@ admin.initializeApp({
 });
 const dbFirestore = admin.firestore();
 
+// Add a new Reservation to firestone
 app.post('/postReservationsFS', async (req, res) => {
   const { guestSize, date, phoneNumber, email } = req.body;
 
