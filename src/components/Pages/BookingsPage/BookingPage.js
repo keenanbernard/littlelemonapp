@@ -11,7 +11,7 @@ const BookingPage = () =>{
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [subject] = useState('Reservation Confirmed');
-  const [content] = useState('Your Little Lemon Reservation has been confirmed.');
+  const [content] = useState(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
   const generateNumberArray = (start, end) => {
     const numberArray = [];
 
