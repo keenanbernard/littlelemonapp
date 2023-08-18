@@ -56,6 +56,8 @@ const BookingPage = () =>{
     setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
   }
 
+  console.log(date)
+
   const getCurrentDateTime = () => {
     const now = new Date();
     const year = now.getFullYear();
@@ -133,6 +135,7 @@ const BookingPage = () =>{
               value={date}
               className="LL-Booking-Date"
               type="datetime-local"
+              step="60"
               min={getCurrentDateTime()}
               onChange={(event) => stateHandler(event, 'date')}></input>
             <input
