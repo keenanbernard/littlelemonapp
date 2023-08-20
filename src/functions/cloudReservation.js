@@ -1,5 +1,6 @@
 import {NotificationManager} from "react-notifications";
 import * as emailjs from "emailjs-com";
+const service = require('./emailJSInfo/serviceAccount');
 
 export const postReservationCloud = async (email, subject, content, reset) => {
   try {
@@ -14,8 +15,8 @@ export const postReservationCloud = async (email, subject, content, reset) => {
 const sendEmailJSCloud = async (email, subject, content) => {
   try {
     const result = await emailjs.send(
-      "service_vjs8nob",
-      "template_wor2dis",
+      service.account.id,
+      service.account.templateId,
       {
         to_email: email,
         subject,
