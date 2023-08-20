@@ -115,4 +115,5 @@
 
 .LL-Item-Left > img{
     width: 300px;
+    position: relative;
 }
