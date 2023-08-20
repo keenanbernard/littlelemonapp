@@ -110,6 +110,15 @@
     border-radius: 10px;
 }
 
+.LL-Booking-Card > label{
+    color: var(--secondary3);
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 10px;
+    margin-bottom: 0;
+}
+
 .LL-Booking-Button{
     align-self: center;
     background-color: var(--secondary3);

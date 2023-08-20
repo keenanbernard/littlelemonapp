@@ -5,7 +5,6 @@ import NotificationContainer from "react-notifications/lib/NotificationContainer
 import {postReservationCloud} from "../../../functions/cloudReservation";
 
 const BookingPage = () =>{
-
   const [date, setDate] = useState('');
   const [guests, setGuests] = useState(0);
   const [email, setEmail] = useState('');
@@ -96,11 +95,13 @@ const BookingPage = () =>{
         <div className="LL-Booking-right">
           <div className="LL-Booking-Card">
             <p>Book a Table</p>
-            <select value={guests} className="LL-Booking-Options" onChange={(event) => stateHandler(event, 'guests')}>
+            <label>Party Size:</label>
+            <select value={guests} className={`LL-Booking-Options ${'error'}`} onChange={(event) => stateHandler(event, 'guests')}>
               {numbers.map((number) => (
                 <option key={number}>{number}</option>
                 ))}
             </select>
+            <label>Date:</label>
             <input
               value={date}
               className="LL-Booking-Date"
@@ -108,12 +109,14 @@ const BookingPage = () =>{
               step="60"
               min={getCurrentDateTime()}
               onChange={(event) => stateHandler(event, 'date')}></input>
+            <label>Contact Number:</label>
             <input
               value={phoneNumber}
               placeholder="+501-614-4297"
               className={`LL-Booking-Number`}
               type="text"
               onChange={(event) => stateHandler(event, 'phone')}></input>
+            <label>Email:</label>
             <input
               value={email}
               placeholder="johndoe@gmail.com"
