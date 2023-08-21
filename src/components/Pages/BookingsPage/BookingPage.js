@@ -6,11 +6,15 @@ import {postReservationCloud} from "../../../functions/cloudReservation";
 
 const BookingPage = () =>{
   const [date, setDate] = useState('');
-  const [guests, setGuests] = useState(0);
+  const [guests, setGuests] = useState(1);
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [occasion, setOccasion] = useState('')
   const [subject] = useState('Reservation Confirmed');
   const [content, setContent] = useState(``);
+  const [isValidDate , setIsValidDate] = useState('');
+  const [isValidPhoneNumber , setIsValidPhoneNumber] = useState('');
+  const [isValidEmail , setIsValidEmail] = useState('');
   const bannerRef = useRef(null);
 
   const resetStates = () =>{
@@ -18,7 +22,10 @@ const BookingPage = () =>{
     setGuests(0);
     setEmail('');
     setPhoneNumber('');
-    setContent(``)
+    setContent(``);
+    setIsValidDate('');
+    setIsValidPhoneNumber('');
+    setIsValidEmail('');
   };
 
   const generateNumberArray = (start, end) => {
@@ -31,10 +38,20 @@ const BookingPage = () =>{
     return numberArray;
   }
 
-  const numbers = generateNumberArray(0, 8);
+  const numbers = generateNumberArray(1, 8);
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   const phoneNumberRegex = /\d/g;
-  const validation = emailRegex.test(email) && date !== '' && guests !== 0 && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
+  const occasions = ['None','Birthday', 'Anniversary', 'Date', 'Special Occasion', 'Business Meal']
+  const validation = emailRegex.test(email) && date !== '' && phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7;
+
+  const isValidationHandler = (type) => {
+    if (type === 'date') setIsValidDate(date === '' ? 'error' : 'valid');
+
+    if(type === 'email') setIsValidEmail(!emailRegex.test(email) ? 'error' : 'valid');
+
+    if(type === 'phone') setIsValidPhoneNumber((phoneNumberRegex.test(phoneNumber) && phoneNumber.length >= 7) ? 'valid' : 'error');
+  }
+
 
   const stateHandler = (event, type) => {
     event.preventDefault()
@@ -44,6 +61,7 @@ const BookingPage = () =>{
       const [datePart, timePart] = dateTimeString.split("T");
       const formattedDateTime = `${datePart} ${timePart}`;
       setDate(formattedDateTime);
+      setIsValidDate(date === '' ? 'error' : 'valid')
     }
 
     if (type === 'guests') setGuests(event.target.value);
@@ -51,11 +69,9 @@ const BookingPage = () =>{
     if (type === 'email') setEmail(event.target.value);
 
     if (type === 'phone') setPhoneNumber(event.target.value);
-  }
 
-  useEffect(() =>{
-    setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
-  }, [date, guests, email, phoneNumber])
+    if (type === 'occasion') setOccasion(event.target.value);
+  }
 
   const getCurrentDateTime = () => {
     const now = new Date();
@@ -67,6 +83,10 @@ const BookingPage = () =>{
 
     return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}T${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
   };
+
+  useEffect(() =>{
+    setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
+  }, [date, guests, email, phoneNumber])
 
   return(
     <section ref={bannerRef} className="LL-Booking">
@@ -96,7 +116,7 @@ const BookingPage = () =>{
           <div className="LL-Booking-Card">
             <p>Book a Table</p>
             <label>Party Size:</label>
-            <select value={guests} className={`LL-Booking-Options ${'error'}`} onChange={(event) => stateHandler(event, 'guests')}>
+            <select value={guests} className={`LL-Booking-Options`} onBlur={() => isValidationHandler('guests')} onChange={(event) => stateHandler(event, 'guests')}>
               {numbers.map((number) => (
                 <option key={number}>{number}</option>
                 ))}
@@ -104,25 +124,40 @@ const BookingPage = () =>{
             <label>Date:</label>
             <input
               value={date}
-              className="LL-Booking-Date"
+              className={`LL-Booking-Date ${isValidDate}`}
               type="datetime-local"
               step="60"
               min={getCurrentDateTime()}
+              onBlur={() => isValidationHandler('date')}
               onChange={(event) => stateHandler(event, 'date')}></input>
+            {isValidDate === 'error' && <span>Date is required.</span>}
             <label>Contact Number:</label>
             <input
               value={phoneNumber}
               placeholder="+501-614-4297"
-              className={`LL-Booking-Number`}
+              className={`LL-Booking-Number ${isValidPhoneNumber}`}
               type="text"
+              onBlur={() => isValidationHandler('phone')}
               onChange={(event) => stateHandler(event, 'phone')}></input>
+            {isValidPhoneNumber === 'error' && <span>Phone number is required.</span>}
             <label>Email:</label>
             <input
               value={email}
               placeholder="johndoe@gmail.com"
-              className={`LL-Booking-Email`}
+              className={`LL-Booking-Email ${isValidEmail}`}
               type="text"
+              onBlur={() => isValidationHandler('email')}
               onChange={(event) => stateHandler(event, 'email')}></input>
+            {isValidEmail === 'error' && <span>Email is required.</span>}
+            <label>Occasion (optional):</label>
+            <select
+              value={occasion}
+              className={`LL-Booking-Occasion`}
+              onChange={(event) => stateHandler(event, 'occasion')}>
+              {occasions.map((ocs, id) => (
+                <option key={id}>{ocs}</option>
+              ))}
+            </select>
             <button
               disabled={!validation}
               className={`LL-Booking-Button ${!validation}`}

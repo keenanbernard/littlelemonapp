@@ -92,13 +92,19 @@
     margin: 1rem 0;
 }
 
-.LL-Booking-Options, .LL-Booking-Date, .LL-Booking-Email, .LL-Booking-Number, .LL-Booking-Time {
+.LL-Booking-Options, .LL-Booking-Date,
+.LL-Booking-Email, .LL-Booking-Number,
+.LL-Booking-Time, .LL-Booking-Occasion {
     color: var(--primaryColor1);
     font-weight: bold;
     font-family: 'Karla', sans-serif;
     font-size: 23px;
     text-align: center;
     border-radius: 10px;
+}
+
+.LL-Booking-Card > .error {
+    border: 2px solid red;
 }
 
 .LL-Booking-Card > p{
@@ -117,6 +123,14 @@
     text-align: left;
     border-radius: 10px;
     margin-bottom: 0;
+}
+
+.LL-Booking-Card > span{
+    color: red;
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
 }
 
 .LL-Booking-Button{
