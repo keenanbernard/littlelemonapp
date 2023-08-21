@@ -1,10 +1,9 @@
 import {NotificationManager} from "react-notifications";
 import * as emailjs from "emailjs-com";
 const service = require('./emailJSInfo/serviceAccount');
-
-export const postReservationCloud = async (email, subject, content, reset) => {
+export const postReservationCloud = async (email, subject, content, reset, navigate) => {
   try {
-    await sendEmailJSCloud(email, subject, content);
+    await sendEmailJSCloud(email, subject, content, navigate);
   } catch (error) {
     NotificationManager.error(error.message || 'Service Unreachable', 'ERROR', 5000);
   } finally {
@@ -12,7 +11,7 @@ export const postReservationCloud = async (email, subject, content, reset) => {
   }
 };
 
-const sendEmailJSCloud = async (email, subject, content) => {
+const sendEmailJSCloud = async (email, subject, content, navigate) => {
   try {
     const result = await emailjs.send(
       service.account.id,
@@ -25,7 +24,7 @@ const sendEmailJSCloud = async (email, subject, content) => {
       "3_z_JHiqMlAUjcNIb"
     );
 
-    if(result.text === 'OK') NotificationManager.success('Reservation confirmed', 'Success');
+    if(result.text === 'OK') navigate('/confirmation');
   } catch (error) {
     NotificationManager.error(error.message || 'Service Unreachable', 'ERROR', 5000);
   }

@@ -1,0 +1,24 @@
+.LL-Confirmations-Page{
+    background-color: var(--primaryColor1);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.LL-Confirmations-Title {
+    margin: 25px auto;
+    color: var(--primaryColor2);
+    font-weight: bold;
+    font-family: 'Markazi Text', serif;
+    font-size: 64px;
+}
+
+.LL-Confirmations{
+    padding: 1rem 0;
+    color: var(--secondary3);
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 10px auto;
+}

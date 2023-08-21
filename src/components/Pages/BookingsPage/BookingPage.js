@@ -1,8 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./BookingPage.css"
 import { Link } from "react-scroll";
 import NotificationContainer from "react-notifications/lib/NotificationContainer";
 import {postReservationCloud} from "../../../functions/cloudReservation";
+import {LoadingSpinner} from "../../Shared/LoadingSpinner/Loading Spinner";
+import {useNavigate} from "react-router-dom";
 
 const BookingPage = () =>{
   const [date, setDate] = useState('');
@@ -15,7 +17,8 @@ const BookingPage = () =>{
   const [isValidDate , setIsValidDate] = useState('');
   const [isValidPhoneNumber , setIsValidPhoneNumber] = useState('');
   const [isValidEmail , setIsValidEmail] = useState('');
-  const bannerRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const resetStates = () =>{
     setDate('');
@@ -88,8 +91,24 @@ const BookingPage = () =>{
     setContent(`Your Little Lemon Reservation has been confirmed for ${guests} on ${date}.`);
   }, [date, guests, email, phoneNumber])
 
+  const handleReserveButtonClick = () => {
+    setIsLoading(true);
+
+    // Perform your reservation logic here
+    postReservationCloud(email, subject, content, resetStates, navigate)
+      .then(() => {
+        const controller = new AbortController();
+        controller.abort();
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
+
+  };
+
   return(
-    <section ref={bannerRef} className="LL-Booking">
+    <section className="LL-Booking">
       <div className="LL-Booking-Banner">
         <img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/622b15f3452a1-859561.jpg?updatedAt=1692053132710" alt="Dining Room" />
         <Link to='reservations' offset={0} duration={1200} smooth={true} delay={100}>
@@ -161,17 +180,13 @@ const BookingPage = () =>{
             <button
               disabled={!validation}
               className={`LL-Booking-Button ${!validation}`}
-              onClick={() => {
-                postReservationCloud(email, subject, content, resetStates).then(() => {
-                  const controller = new AbortController()
-                  controller.abort()
-                });
-
-                bannerRef.current.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}>Reserve Table</button>
+              onClick={handleReserveButtonClick}>Reserve Table</button>
           </div>
+          {isLoading && (
+            <div className="backdrop">
+              <LoadingSpinner />
+            </div>
+          )}
         </div>
       </section>
       <NotificationContainer/>
