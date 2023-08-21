@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./MenuPage.css"
 import specials from "./menu.json"
 import {useNavigate} from "react-router-dom";
 
 const MenuPage = () =>{
   const navigate = useNavigate();
+  useEffect(() =>{
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  })
 
   return(
     <section id="menu" className="LL-Menu">
