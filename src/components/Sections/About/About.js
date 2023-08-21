@@ -27,7 +27,7 @@ export const About = ({data}) => {
           { currentPage === '/' ?
 
           <p className="aboutDetails">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum aliquet massa, ut consequat tortor varius eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum aliquet massa, ut consequat tortor varius eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum aliquet massa, ut consequat tortor varius eu.
+            Welcome to Little Lemon, where Mediterranean flavors come to life! At Little Lemon, we are passionate about bringing the vibrant and diverse culinary traditions of the Mediterranean to your plate. Our restaurant is a celebration of the rich cultural tapestry that spans countries from Greece to Morocco, and everywhere in between.
           </p>
             :
             <div className="paragraphs-container">
