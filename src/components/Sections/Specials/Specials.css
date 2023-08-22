@@ -1,0 +1,165 @@
+section.LL-Specials {
+    padding: 100px 12%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    background-color: var(--secondary3);
+}
+
+.specials-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.specials-titlebar header{
+    color: var(--primaryColor2);
+    font-weight: bold;
+    font-family: 'Markazi Text', serif;
+    font-size: 64px;
+}
+
+.specials-titlebar button{
+    background-color: var(--primaryColor2);
+    border-color: transparent;
+    font-family: 'Karla', sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
+.specials-titlebar button:hover{
+    background-color: var(--primaryColor1);
+    color: var(--secondary3);
+    cursor: pointer;
+}
+
+#LL-Section-SpecialItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2.25rem;
+    flex-wrap: wrap;
+}
+
+.LL-CardHeader {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-desc {
+    color: var(--secondary4);
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    align-self: start;
+    text-align: left;
+    width: 209px;
+}
+
+.food-price {
+    color: var(--prices);
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.food-title{
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.LL-OrderButton{
+    margin: auto;
+}
+.p-order{
+    background-color: var(--primaryColor2);
+    border-color: transparent;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
+.p-order:hover{
+    background-color: var(--primaryColor1);
+    color: var(--secondary3);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    #LL-Section-SpecialItems {
+        gap: 1.25rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .LL-Specials {
+        padding: 50px 10%;
+    }
+
+    .specials-titlebar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .specials-titlebar header {
+        font-size: 40px;
+    }
+
+    .specials-titlebar button {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    #LL-Section-SpecialItems {
+        gap: 1.5rem;
+    }
+
+    .food-desc {
+        width: 100%;
+    }
+
+    .p-order {
+        width: 140px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .LL-Specials {
+        padding: 75px 8%;
+    }
+
+    .specials-titlebar button {
+        width: 180px;
+    }
+
+    #LL-Section-SpecialItems {
+        gap: 1.75rem;
+    }
+
+    .food-desc {
+        width: 100%;
+    }
+
+    .p-order {
+        width: 160px;
+        height: 45px;
+    }
+}
+

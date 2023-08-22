@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Little Lemon Booking Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
+Welcome to the Little Lemon Booking Website! This project is the result of Meta's Coursera Front-End Development course, where we aimed to build a comprehensive booking application for the Little Lemon establishment.
 
-## Available Scripts
+## Features
+- **Booking Application:** This project showcases the implementation of a booking application on the Little Lemon's website. Users can easily make reservations through the user-friendly interface.
 
-In the project directory, you can run:
+- **React Components:** The website is built using React components, demonstrating a solid understanding of this powerful JavaScript library. Components are modular and reusable, making the codebase organized and maintainable.
 
-### `npm start`
+- **API Integration:** The project involves the utilization of API calls. This enhances the user experience by enabling real-time data retrieval and interaction, such as checking availability and confirming reservations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
+To get started with the Little Lemon Booking Website, follow these steps:
+   
+1. **Navigate to the Project Directory: Change into the project directory:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```bash
+   cd littlelemonapp
 
-### `npm test`
+2. **Install Dependencies**: Install the project dependencies using a package manager like npm or yarn:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   npm install
 
-### `npm run build`
+3. **Run the Development** Server: Start the development server to see the website in action:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React:** A popular JavaScript library for building user interfaces, used extensively throughout the project for creating dynamic components and managing the UI.
 
-### `npm run eject`
+- **API:** The project makes use of APIs to fetch data from external sources, enabling real-time interactions and data display.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Notification Manager:** A library for displaying notifications in the UI, enhancing the user experience with clear feedback messages.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
+This website is hosted on firebase, it can be viewed at: https://littlelemonestablishment.web.app
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Acknowledgments
+This project was completed as part of the Front-End Development track offered by Meta on Coursera. Special thanks to the instructors, mentors, and the Coursera community for their guidance and support throughout the course.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+This project is licensed under the Apache License. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Thank you for your interest in the Little Lemon Booking Website project! If you have any questions, suggestions, or would like to contribute, please feel free to reach out.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy coding! 🍋📅

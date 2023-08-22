@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.05rem
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 100% !important;
+    padding: 0 7rem;
+    background-color: var(--secondary3);
+    position: sticky; top: 0
+}
+
+nav{
+    margin-left: 10rem;
+    display: inline-block;
+}
+
+nav a {
+    margin: 0 1.2rem;
+    color: var(--secondary4);
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0 1px;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+nav a:hover {
+    /* border-bottom: 1px solid rgb(28, 121, 184); */
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+nav a:before, nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: -1px;
+    background: #F4CE14;
+}
+
+nav a:before {
+    left: 0;
+    transition: 0.5s;
+}
+
+nav a:after {
+    background: #F4CE14;
+    right: 0;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+nav a:hover:before {
+    background: #F4CE14;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+nav a:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+}
+
+
+.navBar .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--secondary3);
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+}
+
+.navBar div,
+nav {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navBar .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navBar nav {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: 1s;
+    }
+
+    .navBar .responsive_nav {
+        transform: translateY(100vh);
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 1168px) {
+    .navBar .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navBar nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start with the menu off-screen */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        transition: left 0.5s ease; /* Adjust transition timing */
+    }
+
+    .navBar .responsive_nav {
+        left: 0; /* Slide the menu into view */
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
+}

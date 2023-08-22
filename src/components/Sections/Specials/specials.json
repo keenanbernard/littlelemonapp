@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Greek Salad",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/greek%20salad.jpg?updatedAt=1691705004733",
+    "price": 12.99,
+    "description": "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
+  },
+  {
+    "id": 2,
+    "title": "Bruschetta",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/bruchetta.svg?updatedAt=1691704963910",
+    "price": 5.99,
+    "description": "Indulge in our exquisite Bruschetta, crafted from grilled bread, smeared with garlic, and perfectly seasoned with salt and luscious extra virgin olive oil."
+  },
+  {
+    "id": 3,
+    "title": "Lemon Dessert",
+    "image": "https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/lemon%20dessert.jpg?updatedAt=1691705007039",
+    "price": 4.99,
+    "description": "Delight in our culinary treasure – a tribute to grandma's recipe book. Each ingredient thoughtfully sourced for an authentic, memorable taste."
+  }
+]

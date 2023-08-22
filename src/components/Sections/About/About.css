@@ -1,0 +1,121 @@
+.aboutTitle{
+    color: var(--primaryColor1);
+    font-weight: bold;
+    font-family: 'Markazi Text', serif;
+    font-size: 64px;
+    align-self: start;
+}
+
+.aboutSubTitle{
+    color: var(--prices);
+    font-weight: normal;
+    font-family: 'Markazi Text', serif;
+    font-size: 40px;
+    align-self: start;
+}
+
+.aboutDetails{
+    color: var(--secondary4);
+    font-family: 'Karla', serif;
+    font-size: 16px;
+    align-self: start;
+    text-align: left;
+    width: 417px;
+}
+
+.paragraphs-container > p{
+    color: var(--secondary4);
+    font-family: 'Karla', serif;
+    font-size: 16px;
+    align-self: start;
+    text-align: left;
+    width: 417px;
+    margin: 1rem 0
+}
+
+#about {
+    background-color: var(--secondary3);
+    padding: 12% 12% 205px;
+    width: 100%;
+    position: relative;
+}
+
+#about-images {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+#about-first-image {
+    z-index: 100;
+}
+
+#about-second-image {
+    position: absolute;
+    bottom: -30%;
+    right: 66%;
+    z-index: 50;
+    color: darkgray;
+}
+
+#about-images img {
+    max-width: 272px;
+    max-height: 338px;
+    width: 296px;
+    height: 336px;
+}
+
+
+#about-images {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images horizontally */
+}
+
+
+@media only screen and (max-width: 1068px) {
+    .about-columns {
+        gap: 10px !important;
+    }
+
+    #about-first-image,
+    #about-second-image {
+        transform: scale(0.8);
+    }
+
+    #about-second-image {
+        right: -35%;
+        bottom: -25%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #about {
+        padding: 12%;
+    }
+
+    .about-columns {
+        display: flex;
+        flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+        place-items: center;
+    }
+
+    .about-images-column{
+        margin-top: 10rem;
+    }
+
+    #about-images img {
+        width: auto;
+        height: auto;
+    }
+
+    #about-first-image,
+    #about-second-image {
+        transform: scale(1);
+    }
+
+    #about-second-image {
+        right: -25%;
+        bottom: -25%;
+    }
+}
