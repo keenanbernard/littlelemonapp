@@ -36,6 +36,9 @@ To get started with the Little Lemon Booking Website, follow these steps:
 
 - **Notification Manager:** A library for displaying notifications in the UI, enhancing the user experience with clear feedback messages.
 
+## Deployment
+This website is hosted on firebase, it can be viewed at: https://littlelemonestablishment.web.app
+
 ## Acknowledgments
 This project was completed as part of the Front-End Development track offered by Meta on Coursera. Special thanks to the instructors, mentors, and the Coursera community for their guidance and support throughout the course.
 

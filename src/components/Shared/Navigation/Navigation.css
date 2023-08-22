@@ -129,27 +129,37 @@ nav {
     }
 }
 
-@media only screen and (max-width: 1024px){
-    .navBar .nav-btn{
+@media only screen and (max-width: 1168px) {
+    .navBar .nav-btn {
         visibility: visible;
         opacity: 1;
     }
 
-    .navBar nav{
+    .navBar nav {
         position: fixed;
         top: 0;
-        left: 0;
+        left: -100%; /* Start with the menu off-screen */
         height: 100%;
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        transition: 1s;
-        transform: translate(-120vh);
+        transition: left 0.5s ease; /* Adjust transition timing */
     }
 
-    .navBar .responsive_nav{
-        transform: none;
+    .navBar .responsive_nav {
+        left: 0; /* Slide the menu into view */
+    }
+
+    nav .nav-close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
     }
 }

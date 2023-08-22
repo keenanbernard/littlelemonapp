@@ -152,7 +152,6 @@
     cursor: pointer;
 }
 
-/* Add this CSS to your existing styles or create a new CSS file */
 .backdrop {
     position: fixed;
     top: 0;
@@ -164,5 +163,46 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
+}
+
+@media only screen and (max-width: 1068px) {
+    .LL-Booking-Reservation {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 2rem; /* Add some gap between the stacked sections */
+    }
+
+    .LL-Booking-left {
+        margin: 0 auto;
+    }
+
+    .LL-Booking-right {
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .LL-Booking-Reservation {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .LL-Booking-left, .LL-Booking-right {
+        width: 100%;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .LL-Booking-right {
+        height: auto;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .LL-Booking-Button {
+        width: 100%;
+        max-width: 200px;
+    }
 }
 

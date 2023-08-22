@@ -117,3 +117,74 @@
     width: 300px;
     position: relative;
 }
+
+@media only screen and (max-width: 1068px) {
+    .LL-Menu-Item {
+        flex-direction: column; /* Stack items vertically */
+        padding: 1.25rem 6%;
+        height: auto;
+    }
+
+    .LL-Item-Left,
+    .LL-Item-Right {
+        margin: 0 auto;
+        text-align: center; /* Center align the content */
+    }
+
+    .menu-titlebar {
+        height: auto;
+    }
+
+    .menu-titlebar header {
+        text-align: center; /* Center align the title */
+    }
+
+    .LL-Reservations {
+        margin-top: 2rem; /* Add some space between sections */
+        margin-left: 0; /* Reset left margin */
+        width: 100%; /* Make the reservations section full width */
+        text-align: center; /* Center align the content */
+    }
+
+    .LL-Reservations button {
+        align-self: center;
+    }
+
+    .LL-Reservations-1,
+    .LL-Reservations-2 {
+        text-align: center; /* Center align the text */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-titlebar header {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .LL-Reservations {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .LL-Reservations-1, .LL-Reservations-2 {
+        text-align: center;
+    }
+
+    .LL-Reservations button {
+        margin: 0 auto;
+    }
+
+    .LL-Menu-Item {
+        flex-direction: column;
+        gap: 20px;
+        padding: 1rem;
+        height: auto;
+    }
+
+    .LL-Item-Left > img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+

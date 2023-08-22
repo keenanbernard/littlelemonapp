@@ -53,3 +53,31 @@ margin-top: 20px;
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1068px) {
+    .LL-Footer-Row {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .LL-Footer-Row section {
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .LL-Footer-Row {
+        padding: 25px 5%;
+    }
+
+    .LL-Footer-Row section {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .LL-Footer-Logo {
+        margin: 0 auto;
+    }
+}
+
+

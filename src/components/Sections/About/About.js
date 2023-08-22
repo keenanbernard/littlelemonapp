@@ -39,18 +39,15 @@ export const About = ({data}) => {
           }
         </Stack.Item>
 
-        <section className="about-right-column">
-          <section id="about-images">
-            {data.map(({ id, image, alt, divID }) => (
-              <div id={divID} key={id} tabIndex={id}>
-                <img
-                  src={image}
-                  alt={alt}
-                />
-              </div>
-            ))}
-          </section>
-        </section>
+          <Stack.Item className="about-images-column" vertical gap="2.25rem">
+            <section id="about-images">
+              {data.map(({ id, image, alt, divID }) => (
+                <div id={divID} key={id} tabIndex={id}>
+                  <img src={image} alt={alt} />
+                </div>
+              ))}
+            </section>
+          </Stack.Item>
       </Stack>
     </section>
   );

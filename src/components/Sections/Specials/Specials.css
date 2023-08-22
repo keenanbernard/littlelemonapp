@@ -102,3 +102,64 @@ section.LL-Specials {
         gap: 1.25rem;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .LL-Specials {
+        padding: 50px 10%;
+    }
+
+    .specials-titlebar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .specials-titlebar header {
+        font-size: 40px;
+    }
+
+    .specials-titlebar button {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    #LL-Section-SpecialItems {
+        gap: 1.5rem;
+    }
+
+    .food-desc {
+        width: 100%;
+    }
+
+    .p-order {
+        width: 140px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .LL-Specials {
+        padding: 75px 8%;
+    }
+
+    .specials-titlebar button {
+        width: 180px;
+    }
+
+    #LL-Section-SpecialItems {
+        gap: 1.75rem;
+    }
+
+    .food-desc {
+        width: 100%;
+    }
+
+    .p-order {
+        width: 160px;
+        height: 45px;
+    }
+}
+

@@ -65,6 +65,14 @@
     height: 336px;
 }
 
+
+#about-images {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images horizontally */
+}
+
+
 @media only screen and (max-width: 1068px) {
     .about-columns {
         gap: 10px !important;
@@ -87,7 +95,13 @@
     }
 
     .about-columns {
-        gap: 0 !important;
+        display: flex;
+        flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+        place-items: center;
+    }
+
+    .about-images-column{
+        margin-top: 10rem;
     }
 
     #about-images img {
@@ -97,7 +111,7 @@
 
     #about-first-image,
     #about-second-image {
-        transform: scale(0.5);
+        transform: scale(1);
     }
 
     #about-second-image {
