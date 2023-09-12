@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div className="App">
+    <div data-testid="App" className="App">
       <RouterProvider router={router} />
     </div>
   );

@@ -10,7 +10,7 @@ const MenuPage = () =>{
   })
 
   return(
-    <section id="menu" className="LL-Menu">
+    <section data-testid="menuPage" id="menu" className="LL-Menu">
       <section className="menu-titlebar">
         <header>seasonal, contemporary, mediterranean</header>
       </section>
@@ -18,7 +18,7 @@ const MenuPage = () =>{
       <section className="LL-Reservations">
         <p className="LL-Reservations-1">Reservations</p>
         <p className="LL-Reservations-2">Book your table online.</p>
-        <button onClick={() => navigate('/bookings')}>reserve</button>
+        <button data-testid="reserveButton" onClick={() => navigate('/bookings')}>reserve</button>
       </section>
 
       {specials.map(({id, title, price, description, image}) => (

@@ -108,7 +108,7 @@ const BookingPage = () =>{
   };
 
   return(
-    <section className="LL-Booking">
+    <section data-testid="bookingPage" className="LL-Booking">
       <div className="LL-Booking-Banner">
         <img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/622b15f3452a1-859561.jpg?updatedAt=1692053132710" alt="Dining Room" />
         <Link to='reservations' offset={0} duration={1200} smooth={true} delay={100}>
@@ -135,13 +135,14 @@ const BookingPage = () =>{
           <div className="LL-Booking-Card">
             <p>Book a Table</p>
             <label>Party Size:</label>
-            <select value={guests} className={`LL-Booking-Options`} onBlur={() => isValidationHandler('guests')} onChange={(event) => stateHandler(event, 'guests')}>
+            <select data-testid="guestSelection" value={guests} className={`LL-Booking-Options`} onBlur={() => isValidationHandler('guests')} onChange={(event) => stateHandler(event, 'guests')}>
               {numbers.map((number) => (
                 <option key={number}>{number}</option>
                 ))}
             </select>
             <label>Date:</label>
             <input
+              data-testid="dateInput"
               value={date}
               className={`LL-Booking-Date ${isValidDate}`}
               type="datetime-local"
@@ -152,6 +153,7 @@ const BookingPage = () =>{
             {isValidDate === 'error' && <span>Date is required.</span>}
             <label>Contact Number:</label>
             <input
+              data-testid="mobileNumberInput"
               value={phoneNumber}
               placeholder="+501-614-4297"
               className={`LL-Booking-Number ${isValidPhoneNumber}`}
@@ -161,6 +163,7 @@ const BookingPage = () =>{
             {isValidPhoneNumber === 'error' && <span>Phone number is required.</span>}
             <label>Email:</label>
             <input
+              data-testid="emailInput"
               value={email}
               placeholder="johndoe@gmail.com"
               className={`LL-Booking-Email ${isValidEmail}`}
@@ -170,6 +173,7 @@ const BookingPage = () =>{
             {isValidEmail === 'error' && <span>Email is required.</span>}
             <label>Occasion (optional):</label>
             <select
+              data-testid="occasionSelect"
               value={occasion}
               className={`LL-Booking-Occasion`}
               onChange={(event) => stateHandler(event, 'occasion')}>
@@ -178,6 +182,7 @@ const BookingPage = () =>{
               ))}
             </select>
             <button
+              data-testid="reserveButton"
               disabled={!validation}
               className={`LL-Booking-Button ${!validation}`}
               onClick={handleReserveButtonClick}>Reserve Table</button>
