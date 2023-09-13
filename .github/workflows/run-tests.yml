@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  test:
+  Unit-test:
     runs-on: ubuntu-latest
 
     steps:
