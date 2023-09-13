@@ -5,7 +5,7 @@ const Hero =()=> {
   const navigate = useNavigate();
 
   return (
-    <section className="LL-Hero">
+    <section data-testid="LL-Hero" className="LL-Hero">
       <div className="LL-Hero-left">
         <header className="displayTitle">
           Little Lemon
@@ -16,6 +16,7 @@ const Hero =()=> {
           recipes served with a modern twist.
         </p>
         <button
+          data-testid="reserveButton"
           aria-label="Reserve a Table"
           className="LL-Hero-btn"
           onClick={() => navigate('/bookings')}

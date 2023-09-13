@@ -6,10 +6,10 @@ export const Specials = ({ data, itemWidth }) => {
   const navigate = useNavigate();
 
   return (
-    <section id="specials" className="LL-Specials">
+    <section data-testid="LL-Specials" id="specials" className="LL-Specials">
       <section className="specials-titlebar">
         <header>This Weeks Specials</header>
-        <button onClick={() => navigate('/menu')}>Online Menu</button>
+        <button data-testid="menuButton" onClick={() => navigate('/menu')}>Online Menu</button>
       </section>
 
       <section id="LL-Section-SpecialItems">

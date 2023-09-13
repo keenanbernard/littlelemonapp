@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import BookingPage from './BookingPage';
+import BookingPage from '../components/Pages/BookingsPage/BookingPage';
 
 // Mock the react-router-dom's useNavigate function
 jest.mock('react-router-dom', () => ({

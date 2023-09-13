@@ -5,7 +5,7 @@ import {ReviewStar} from "./ReviewStar/ReviewStar";
 
 export const Testimonials = ({ data }) => {
   return (
-    <section id="testimonials" className="LL-Testimonials">
+    <section data-testid="LL-Testimonials" id="testimonials" className="LL-Testimonials">
       <header className="LL-Testimonials-Header">
         Testimonials
       </header>

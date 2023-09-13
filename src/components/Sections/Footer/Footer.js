@@ -5,7 +5,7 @@ import {SocialIcon} from "react-social-icons";
 const Footer = () =>{
 
   return(
-    <footer>
+    <footer data-testid="LL-Footer">
       <div className="LL-Footer-Row">
         <section className="LL-Footer-Logo">
           <img src="https://ik.imagekit.io/Bernard98/Little%20Lemon%20Assets/Logo.svg?updatedAt=1691705192811" alt="Little Lemon Logo"/>

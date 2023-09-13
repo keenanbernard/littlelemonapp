@@ -11,7 +11,7 @@ export const About = ({data}) => {
   const paragraphs = text.split('\n\n');
 
   return (
-    <section id="about">
+    <section data-testid="LL-About" id="about">
       <Stack className="about-columns" justify="space-between">
         <Stack.Item
           className="about-left-column"
@@ -26,11 +26,11 @@ export const About = ({data}) => {
 
           { currentPage === '/' ?
 
-          <p className="aboutDetails">
+          <p data-testid="home" className="aboutDetails">
             Welcome to Little Lemon, where Mediterranean flavors come to life! At Little Lemon, we are passionate about bringing the vibrant and diverse culinary traditions of the Mediterranean to your plate. Our restaurant is a celebration of the rich cultural tapestry that spans countries from Greece to Morocco, and everywhere in between.
           </p>
             :
-            <div className="paragraphs-container">
+            <div data-testid="about" className="paragraphs-container">
               {paragraphs.map((paragraph, index) => (
                 <p key={index} className="paragraph">{paragraph}</p>
               ))}
